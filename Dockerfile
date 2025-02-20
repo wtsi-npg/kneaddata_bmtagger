@@ -7,9 +7,12 @@ COPY kneaddata_bmtagger_env.yml environment.yml
 
 SHELL ["/bin/bash", "-c"]
 
+# procps is used for nextflow
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y wget
+    apt install -y \
+      wget \
+      procps
 
 RUN apt-get autoremove --yes && \
     apt-get clean --yes
